@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  min-height: 100vh;
+  padding: 10rem 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  max-width: 100%;
+
+  @include mobile { padding: 8rem 1.5rem 4rem; }
+  @include tablet { padding: 9rem 2rem 5rem; }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: $section-max-width;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pill {
+  margin: 0 auto 2rem;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  margin-bottom: 2rem;
+  font-variation-settings: 'opsz' 96;
+  color: $fg;
+}
+
+.highlight {
+  background: linear-gradient(135deg, $violet-2 0%, $violet 50%, $violet-3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  color: $fg-soft;
+  max-width: 640px;
+  line-height: 1.55;
+  margin: 0 auto 2.5rem;
+}

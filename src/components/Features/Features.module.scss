@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @include mobile { grid-template-columns: 1fr; }
+  @include tablet { grid-template-columns: 1fr 1fr; }
+}
+
+.featureCard {
+  background: linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(15, 15, 20, 0.7) 100%);
+  border: 1px solid $border-bright;
+  border-radius: $radius-lg;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s $ease-out;
+  backdrop-filter: blur(10px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $violet-line, transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &:hover {
+    border-color: $violet-line;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px $violet-soft;
+
+    &::before { opacity: 1; }
+
+    .featureIcon {
+      background: $gradient-violet;
+      color: white;
+      border-color: $violet;
+      box-shadow: 0 0 24px $violet-glow;
+    }
+
+    .featureNumber { color: $violet-2; }
+  }
+
+  &:last-child {
+    @include tablet {
+      grid-column: 1 / -1;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: $fg-soft;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+
+    strong { color: $fg; font-weight: 600; }
+  }
+}
+
+.featureNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $fg-dim;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+
+.featureIcon {
+  width: 52px;
+  height: 52px;
+  background: $violet-soft;
+  border: 1px solid $violet-line;
+  border-radius: $radius-sm;
+  @include flex-center;
+  margin-bottom: 1.75rem;
+  color: $violet-2;
+  transition: all 0.4s $ease-spring;
+}
+
+.featureTag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border;
+  border-radius: $radius-pill;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $fg-dim;
+  letter-spacing: 0.05em;
+}

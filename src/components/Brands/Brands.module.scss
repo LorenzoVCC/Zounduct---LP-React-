@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.brands {
+  padding: 4rem 3rem;
+  text-align: center;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+}
+
+.brandsLabel {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $fg-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+}
+
+.brandsList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+
+  @include mobile { gap: 1.5rem; }
+  @include tablet { gap: 2rem; }
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $fg-dim;
+  transition: color $transition;
+  letter-spacing: -0.01em;
+
+  &:hover { color: $fg; }
+}

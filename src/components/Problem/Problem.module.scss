@@ -1,0 +1,114 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.problemGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @include mobile { grid-template-columns: 1fr; gap: 2rem; }
+  @include tablet { gap: 2.5rem; }
+}
+
+.problemList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $fg-soft;
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    strong { color: $fg; font-weight: 600; }
+  }
+}
+
+.problemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.problemText {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.problemTerminal {
+  background: $bg-2;
+  border: 1px solid $border-bright;
+  border-radius: $radius-md;
+  overflow: hidden;
+  font-family: $font-mono;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid $border;
+  gap: 1rem;
+}
+
+.terminalName {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: $fg-dim;
+  letter-spacing: 0.02em;
+}
+
+.terminalBody {
+  padding: 1.5rem;
+  line-height: 1.9;
+}
+
+.terminalLine {
+  font-size: 0.85rem;
+  color: $fg-soft;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.dim { color: $fg-dim; font-style: italic; }
+}
+
+// Reusa el logo del mockup del Hero — mismo patrón visual
+.mockupBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mockupLogoMark {
+  width: 14px;
+  height: 14px;
+  background: $gradient-violet;
+  border-radius: 4px;
+  box-shadow: 0 0 10px $violet-glow, inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: $bg;
+    border-radius: 1.5px;
+  }
+}
+
+.mockupBrandName {
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: -0.01em;
+  color: $fg;
+}
