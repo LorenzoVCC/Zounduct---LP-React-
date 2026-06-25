@@ -1,0 +1,12 @@
+// ===================================
+//  Zounduct LP React — globals.scss
+//  Entry point de estilos GLOBALES únicamente.
+//  Se importa una sola vez en src/main.tsx.
+//  Los estilos de cada sección viven en su propio
+//  *.module.scss junto a su componente (Fase 1).
+// ===================================
+
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'components';

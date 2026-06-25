@@ -1,8 +1,13 @@
+import Layout from './components/Layout/Layout'
+import Nav from './components/Nav/Nav'
+import Footer from './components/Footer/Footer'
+
 function App() {
   return (
-    <div>
-      <h1>Zounduct</h1>
-    </div>
+    <Layout>
+      <Nav />
+      <Footer />
+    </Layout>
   )
 }
 

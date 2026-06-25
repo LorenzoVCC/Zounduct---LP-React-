@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+// ===================================
+//  Mixins reutilizables
+// ===================================
+
+@mixin mobile {
+  @media (max-width: $mobile) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: $tablet) { @content; }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glow($color: $violet-glow, $size: 12px) {
+  box-shadow: 0 0 $size $color;
+}
+
+@mixin card {
+  background: $bg-2;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  padding: 2.5rem;
+}

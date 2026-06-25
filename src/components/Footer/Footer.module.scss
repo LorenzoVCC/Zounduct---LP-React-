@@ -1,0 +1,108 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  border-top: 1px solid $border;
+  padding: 4rem 3rem 2rem;
+  position: relative;
+  z-index: 1;
+
+  @include mobile { padding: 3rem 1.5rem 1.5rem; }
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  max-width: $section-max-width;
+  margin: 0 auto 3rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.footerBrand {
+  p {
+    color: $fg-dim;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    max-width: 300px;
+    line-height: 1.5;
+  }
+
+  @include tablet { grid-column: 1 / -1; }
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: $fg;
+}
+
+.logoMark {
+  width: 18px;
+  height: 18px;
+  background: $gradient-violet;
+  border-radius: 5px;
+  box-shadow: 0 0 16px $violet-glow, inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: $bg;
+    border-radius: 2px;
+  }
+}
+
+.footerCol {
+  h4 {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $fg-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  a {
+    display: block;
+    color: $fg-soft;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    transition: color $transition;
+
+    &:hover { color: $fg; }
+  }
+}
+
+.footerBottom {
+  border-top: 1px solid $border;
+  padding-top: 1.5rem;
+  max-width: $section-max-width;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  color: $fg-dim;
+  font-size: 0.8rem;
+  font-family: $font-mono;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

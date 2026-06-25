@@ -1,0 +1,169 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Button
+.btn {
+  background: $gradient-violet;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: $radius-pill;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  transition:
+    box-shadow 0.6s $ease-out,
+    background 0.6s $ease-out;
+  box-shadow: 0 4px 24px rgba(139, 83, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    box-shadow: 0 8px 48px rgba(139, 83, 255, 0.7), 0 0 0 1px rgba(139, 83, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, #9B63FF 0%, #7B43EF 100%);
+  }
+
+  &.btn-sm {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  &.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition:
+      transform 0.6s $ease-spring,
+      box-shadow 0.5s $ease-out,
+      background 0.5s $ease-out;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 16px 48px rgba(139, 83, 255, 0.55),
+        0 0 0 1px rgba(139, 83, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.btn-link {
+  color: $fg-soft;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  transition: all $transition;
+
+  &:hover { color: $fg; border-bottom-color: $violet; }
+}
+
+// Pill
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem 0.4rem 0.5rem;
+  border: 1px solid $violet-line;
+  border-radius: $radius-pill;
+  font-size: 0.8rem;
+  color: $fg-soft;
+  background: rgba(139, 83, 255, 0.05);
+  margin-bottom: 2rem;
+  font-family: $font-mono;
+  backdrop-filter: blur(10px);
+
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    background: $violet;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+// Eyebrow
+.eyebrow {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $violet-2;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $violet);
+  }
+
+  &.centered {
+    justify-content: center;
+    &::before { background: linear-gradient(to left, transparent, $violet); }
+    &::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, $violet);
+    }
+  }
+}
+
+// Highlight
+.highlight {
+  position: relative;
+  display: inline-block;
+  color: $violet-2;
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(135deg, $violet 0%, #C4A8FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Section base
+section {
+  padding: $section-padding-y $section-padding-x;
+  max-width: $section-max-width;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  @include mobile {
+    padding: 6rem 1.5rem;
+  }
+}
+
+h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  font-variation-settings: "opsz" 96;
+}
+
+.section-sub {
+  color: $fg-soft;
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+
+// Tablet responsive
+section {
+  @include tablet {
+    padding: 7rem 2rem;
+  }
+}

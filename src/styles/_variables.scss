@@ -1,0 +1,54 @@
+// ===================================
+//  Variables — paleta extendida
+// ===================================
+
+// Colores base
+$bg:          #07070A;
+$bg-2:        #0F0F14;
+$bg-3:        #16161C;
+$fg:          #FAFAFC;
+$fg-dim:      #7A7A85;
+$fg-soft:     #B0B0BC;
+$border:      rgba(255, 255, 255, 0.06);
+$border-bright: rgba(255, 255, 255, 0.12);
+
+// Violeta — paleta completa
+$violet:      #8B53FF;
+$violet-2:    #A57AFF;
+$violet-3:    #6B2FFF;
+$violet-glow: rgba(139, 83, 255, 0.5);
+$violet-soft: rgba(139, 83, 255, 0.12);
+$violet-line: rgba(139, 83, 255, 0.25);
+
+// Acentos
+$error:       #FF5353;
+$success:     #4ADE80;
+
+// Gradientes
+$gradient-violet: linear-gradient(135deg, $violet 0%, $violet-3 100%);
+$gradient-mesh:   radial-gradient(ellipse at top right, $violet-glow 0%, transparent 50%),
+                  radial-gradient(ellipse at bottom left, rgba(107, 47, 255, 0.3) 0%, transparent 50%);
+
+// Tipografía
+$font-display: 'Bricolage Grotesque', sans-serif;
+$font-mono:    'JetBrains Mono', monospace;
+
+// Espaciado
+$section-padding-y: 10rem;
+$section-padding-x: 3rem;
+$section-max-width: 1400px;
+
+// Bordes
+$radius-sm: 10px;
+$radius-md: 20px;
+$radius-lg: 28px;
+$radius-pill: 100px;
+
+// Transiciones
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+$transition: 0.2s ease;
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
