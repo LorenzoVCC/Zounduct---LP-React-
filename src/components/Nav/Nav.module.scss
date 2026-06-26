@@ -101,3 +101,17 @@
     &:hover { color: $fg; }
   }
 }
+
+.ctaBtn {
+  flex-shrink: 0;
+}
+
+.ctaFull {
+  @include mobile { display: none; }
+}
+
+.ctaShort {
+  display: none;
+
+  @include mobile { display: inline; }
+}

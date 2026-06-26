@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: $bg-2;
+  border: 1px solid $border-bright;
+  border-radius: $radius-md;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: $fg;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s $ease-out, transform 0.3s $ease-out;
+  z-index: 100;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.success {
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.error {
+  border-color: rgba(255, 83, 83, 0.4);
+}

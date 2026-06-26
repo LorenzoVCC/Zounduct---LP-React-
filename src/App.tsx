@@ -5,6 +5,8 @@ import Brands from './components/Brands/Brands'
 import Problem from './components/Problem/Problem'
 import Features from './components/Features/Features'
 import Audience from './components/Audience/Audience'
+import Pricing from './components/Pricing/Pricing'
+import CTA from './components/CTA/CTA'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Problem />
       <Features />
       <Audience />
+      <Pricing />
+      <CTA />
       <Footer />
     </Layout>
   )

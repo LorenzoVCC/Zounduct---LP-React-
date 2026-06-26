@@ -1,12 +1,15 @@
 import CTAGroup from '../CTAGroup/CTAGroup'
 import ProductMockup from '../ProductMockup/ProductMockup'
 import StatsRow from '../StatsRow/StatsRow'
+import useScrollReveal from '../../hooks/useScrollReveal'
 import styles from './Hero.module.scss'
 
 function Hero() {
+  const { ref, visible } = useScrollReveal<HTMLDivElement>()
+
   return (
     <section className={styles.hero} id="hero">
-      <div className={styles.heroContent}>
+      <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.heroContent}`}>
         <div className={`pill ${styles.pill}`}>
           <span className="pill-dot" />
           Próximamente
@@ -24,8 +27,9 @@ function Hero() {
         </p>
 
         <CTAGroup />
-        <ProductMockup />
       </div>
+
+      <ProductMockup />
 
       <StatsRow />
     </section>

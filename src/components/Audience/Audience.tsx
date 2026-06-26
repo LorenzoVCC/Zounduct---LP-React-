@@ -1,3 +1,4 @@
+import AudienceItem from './AudienceItem'
 import styles from './Audience.module.scss'
 
 const profiles = [
@@ -29,13 +30,8 @@ function Audience() {
         </p>
 
         <div className={styles.audienceList}>
-          {profiles.map((profile) => (
-            <div className={styles.audienceItem} key={profile.strong}>
-              <div className={styles.audienceCheck}>✓</div>
-              <div>
-                <strong>{profile.strong}</strong> {profile.rest}
-              </div>
-            </div>
+          {profiles.map((profile, i) => (
+            <AudienceItem key={profile.strong} {...profile} delay={i * 150} />
           ))}
         </div>
       </div>

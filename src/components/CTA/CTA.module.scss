@@ -1,0 +1,100 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.cta {
+  text-align: center;
+  padding: 10rem 3rem;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, $violet-soft 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  p {
+    color: $fg-soft;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+  }
+
+  @include mobile { padding: 6rem 1.5rem; }
+}
+
+.ctaContent {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaMeta {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $fg-dim;
+  letter-spacing: 0.05em;
+}
+
+// .cta-form (global, usado por EmailForm) — necesita vivir acá porque
+// el form en sí no tiene su propio componente separado.
+:global(.cta-form) {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  padding: 0.5rem;
+  background: rgba(22, 22, 28, 0.8);
+  border: 1px solid $border-bright;
+  border-radius: $radius-pill;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: border-color $transition;
+
+  &:focus-within {
+    border-color: $violet-line;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 4px $violet-soft;
+  }
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    color: $fg;
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    &::placeholder { color: $fg-dim; }
+  }
+
+  // El btn-lg global tiene translateY(-4px) en hover (pensado para el Hero,
+  // donde el botón está solo). Dentro de la fila del form, eso lo desalinea
+  // verticalmente respecto al input — se fuerza que mantenga exactamente su
+  // posición y tamaño en cualquier estado, solo cambian los colores/glow.
+  // Transition de color/glow a 0.3s, específico de este contexto (no se
+  // toca el .btn global, que sigue en 0.6s en el resto del sitio).
+  :global(.btn-lg) {
+    flex-shrink: 0;
+    align-self: center;
+    transition: box-shadow 0.3s $ease-out, background 0.3s $ease-out;
+
+    &,
+    &:hover {
+      transform: none;
+      margin: 0;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    border-radius: $radius-md;
+    padding: 1rem;
+
+    input { padding: 0.75rem; }
+  }
+}

@@ -6,7 +6,7 @@
   max-width: 680px;
   margin: 0 auto 6rem;
   position: relative;
-  animation: float 6s ease-in-out infinite;
+  animation: global(float) 6s ease-in-out infinite;
 
   @include tablet { max-width: 580px; }
 }

@@ -15,6 +15,16 @@
     <title>Zounduct — Guide Your Zound</title>
   </head>
   <body>
+    <!--
+      Form oculto, idéntico al de EmailForm.tsx (mismo name, mismo campo email).
+      Netlify detecta forms parseando el HTML en build estático — como React
+      renderiza el form real en el cliente, Netlify nunca lo vería sin este
+      duplicado oculto. No se muestra ni se usa directamente.
+    -->
+    <form name="beta" data-netlify="true" hidden>
+      <input type="email" name="email" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,3 +1,4 @@
+import FeatureCard from './FeatureCard'
 import styles from './Features.module.scss'
 
 const features = [
@@ -62,17 +63,12 @@ function Features() {
       </p>
 
       <div className={styles.featuresGrid}>
-        {features.map((feature) => (
-          <div className={styles.featureCard} key={feature.number}>
-            <div className={styles.featureNumber}>{feature.number}</div>
-            <div className={styles.featureIcon}>{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
+        {features.map((feature, i) => (
+          <FeatureCard key={feature.number} {...feature} delay={i * 200} />
         ))}
       </div>
 
-      {/* Audience y Before/After se migran en R18 y R38-R41 respectivamente */}
+      {/* Audience y Before/After se migran en R20 (ya hecho aparte) y R38-R41 respectivamente */}
     </section>
   )
 }

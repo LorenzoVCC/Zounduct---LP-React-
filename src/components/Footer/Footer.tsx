@@ -1,9 +1,12 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
 import styles from './Footer.module.scss'
 
 function Footer() {
+  const { ref, visible } = useScrollReveal<HTMLDivElement>()
+
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerGrid}>
+      <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.footerGrid}`}>
         <div className={styles.footerBrand}>
           <div className={styles.logo}>
             <span className={styles.logoMark} />

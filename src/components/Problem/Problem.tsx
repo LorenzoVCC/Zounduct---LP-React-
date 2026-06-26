@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
 import styles from './Problem.module.scss'
 
 // Mismo ícono SVG repetido 4 veces en el original — extraído una sola vez.
@@ -52,6 +53,8 @@ const terminalLines = [
 ]
 
 function Problem() {
+  const { ref, visible } = useScrollReveal<HTMLDivElement>()
+
   return (
     <section className="problem" id="problema">
       <div className="eyebrow">El problema</div>
@@ -61,7 +64,7 @@ function Problem() {
         Tus tracks, Zounduct los ordena.
       </h2>
 
-      <div className={styles.problemGrid}>
+      <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.problemGrid}`}>
         <div>
           <p className="section-sub">
             Si sos DJ y gestionás tu propia biblioteca musical, sabés exactamente de qué

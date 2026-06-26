@@ -15,8 +15,17 @@ function Nav() {
         <a href="#features">Cómo funciona</a>
         <a href="#para-quien">Para vos</a>
         <a href="#pricing">Planes</a>
-        <a href="#cta" className="btn btn-sm">
-          Sumate a la beta
+        <a
+          href="#cta"
+          className="btn btn-sm"
+          style={{
+            display: 'inline-flex',
+            flexShrink: 0,
+            visibility: 'visible',
+            padding: '0.55rem 2.25rem',
+          }}
+        >
+          Beta
         </a>
       </div>
     </nav>

@@ -1,0 +1,223 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+
+  @include mobile { grid-template-columns: 1fr; }
+  @include tablet { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}
+
+.pricingCard {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(15, 15, 20, 0.7) 100%);
+  border: 1px solid $border-bright;
+  border-radius: $radius-lg;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.5s $ease-spring,
+    box-shadow 0.5s $ease-out,
+    border-color 0.4s $ease-out,
+    background 0.4s $ease-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, $violet 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s $ease-out;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(ellipse at center, $violet-soft 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s $ease-out;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: $violet-line;
+    transform: translateY(-8px);
+    background: linear-gradient(180deg, rgba(28, 22, 38, 0.85) 0%, rgba(15, 15, 20, 0.85) 100%);
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(139, 83, 255, 0.15),
+      0 0 60px rgba(139, 83, 255, 0.08);
+
+    &::before { opacity: 1; }
+    &::after  { opacity: 1; }
+
+    .pricingPrice {
+      background: linear-gradient(135deg, $fg 0%, $violet-2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}
+
+.pricingCardSoon {
+  opacity: 0.7;
+  transition:
+    opacity 0.4s $ease-out,
+    transform 0.5s $ease-spring,
+    box-shadow 0.5s $ease-out,
+    border-color 0.4s $ease-out;
+
+  &:hover { opacity: 0.9; }
+}
+
+.pricingName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $fg;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.pricingPriceWrapper {
+  height: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.pricingPrice {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $fg;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s $ease-out;
+
+  span {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: $fg-dim;
+    letter-spacing: 0;
+  }
+}
+
+.pricingPriceOld {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $fg-dim;
+  text-decoration: line-through;
+  letter-spacing: 0;
+  margin-right: 0.25rem;
+}
+
+.pricingLaunchBadge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: rgba(139, 83, 255, 0.15);
+  border: 1px solid rgba(139, 83, 255, 0.3);
+  border-radius: $radius-pill;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $violet-2;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.pricingPriceSlot {
+  height: 1.85rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.pricingSoon {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid $border;
+  border-radius: $radius-pill;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $fg-dim;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
+.pricingDesc {
+  font-size: 0.9rem;
+  color: $fg-dim;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border;
+  line-height: 1.5;
+  min-height: 4rem;
+}
+
+.pricingFeatures {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex: 1;
+
+  li {
+    font-size: 0.9rem;
+    color: $fg-soft;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.4;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $violet-2;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.btnOutline {
+  &.btnOutline {
+    background: transparent;
+    border: 1px solid $border-bright;
+    color: $fg-soft;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    transition:
+      border-color 0.7s $ease-out,
+      color 0.7s $ease-out,
+      transform 0.7s $ease-out;
+
+    &:hover {
+      border-color: $violet-line;
+      color: $fg;
+      box-shadow: none;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.btnDisabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
