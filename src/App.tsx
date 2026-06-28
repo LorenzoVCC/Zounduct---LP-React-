@@ -9,21 +9,26 @@ import Audience from './components/Audience/Audience'
 import Pricing from './components/Pricing/Pricing'
 import CTA from './components/CTA/CTA'
 import Footer from './components/Footer/Footer'
+import RoadmapPanel from './components/RoadmapPanel/RoadmapPanel'
+import { HistoriaPanelProvider } from './components/RoadmapPanel/HistoriaPanelContext'
 
 function App() {
   return (
-    <Layout>
-      <Nav />
-      <Hero />
-      <Brands />
-      <Problem />
-      <BeforeAfter />
-      <Features />
-      <Audience />
-      <Pricing />
-      <CTA />
-      <Footer />
-    </Layout>
+    <HistoriaPanelProvider>
+      <Layout>
+        <Nav />
+        <Hero />
+        <Brands />
+        <Problem />
+        <BeforeAfter />
+        <Features />
+        <Audience />
+        <Pricing />
+        <CTA />
+        <Footer />
+      </Layout>
+      <RoadmapPanel />
+    </HistoriaPanelProvider>
   )
 }
 

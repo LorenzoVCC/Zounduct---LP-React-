@@ -3,6 +3,7 @@ import type { ToastType } from '../../hooks/useToast'
 
 interface EmailFormProps {
   showToast: (message: string, type: ToastType) => void
+  ctaLabel?: string
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -13,7 +14,7 @@ function encode(data: Record<string, string>) {
     .join('&')
 }
 
-function EmailForm({ showToast }: EmailFormProps) {
+function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -57,7 +58,7 @@ function EmailForm({ showToast }: EmailFormProps) {
         disabled={loading}
       />
       <button type="submit" className="btn btn-lg" disabled={loading}>
-        {loading ? 'Enviando...' : 'Sumate a la beta'}
+        {loading ? 'Enviando...' : ctaLabel}
       </button>
     </form>
   )

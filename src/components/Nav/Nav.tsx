@@ -1,4 +1,5 @@
 import useScrollNav from '../../hooks/useScrollNav'
+import { PRE_LAUNCH, DOWNLOAD_URL } from '../../config/launchMode'
 import styles from './Nav.module.scss'
 
 function Nav() {
@@ -16,7 +17,7 @@ function Nav() {
         <a href="#para-quien">Para vos</a>
         <a href="#pricing">Planes</a>
         <a
-          href="#cta"
+          href={PRE_LAUNCH ? '#cta' : DOWNLOAD_URL}
           className="btn btn-sm"
           style={{
             display: 'inline-flex',
@@ -25,7 +26,7 @@ function Nav() {
             padding: '0.55rem 2.25rem',
           }}
         >
-          Beta
+          {PRE_LAUNCH ? 'Beta' : 'Descargar gratis'}
         </a>
       </div>
     </nav>

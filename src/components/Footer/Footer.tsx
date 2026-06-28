@@ -1,8 +1,10 @@
 import useScrollReveal from '../../hooks/useScrollReveal'
+import { useHistoriaPanel } from '../RoadmapPanel/HistoriaPanelContext'
 import styles from './Footer.module.scss'
 
 function Footer() {
   const { ref, visible } = useScrollReveal<HTMLDivElement>()
+  const { openPanel } = useHistoriaPanel()
 
   return (
     <footer className={styles.footer}>
@@ -18,8 +20,16 @@ function Footer() {
         <div className={styles.footerCol}>
           <h4>Producto</h4>
           <a href="#features">Funciones</a>
-          {/* "El Proyecto" se conecta en R50-R52 (panel/sección Historia) — placeholder por ahora */}
-          <a href="#">El Proyecto</a>
+          {/* R50-R52 — conectado al panel Historia via Context */}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              openPanel()
+            }}
+          >
+            El Proyecto
+          </a>
           <a href="#cta">Beta</a>
           <a href="#hero">Descarga</a>
         </div>

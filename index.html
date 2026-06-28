@@ -13,6 +13,85 @@
     />
 
     <title>Zounduct — Guide Your Zound</title>
+
+    <!--
+      R55/L47: todavía no hay dominio comprado. Usamos un placeholder
+      explícito (zounduct.app, igual al de la LP vieja) para no dejar
+      URLs vacías ni inventar un dominio real. Buscar "zounduct.app"
+      en este archivo y reemplazar por el dominio real una vez definido.
+    -->
+
+    <!-- R45 — Meta tags básicos -->
+    <meta
+      name="description"
+      content="Zounduct es la app para DJs que gestiona tu biblioteca musical automáticamente. Detección de tracks, sync con pendrive y descarga desde YouTube, ZoundCloud y Bandcamp. Sin Rekordbox. Sin Serato."
+    />
+    <meta
+      name="keywords"
+      content="DJ, gestión musical, biblioteca, pendrive, sync, yt-dlp, YouTube, ZoundCloud, Bandcamp, MP3, WAV, AIFF, Rekordbox, Serato"
+    />
+    <meta name="author" content="Zounduct" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- R47 — Open Graph (R46 pendiente: og-image.png todavía no existe) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zounduct.app/" />
+    <meta property="og:title" content="Zounduct — Guide Your Zound" />
+    <meta
+      property="og:description"
+      content="Tu biblioteca musical, organizada dinámicamente. Detección automática, sync con pendrive, descarga desde YouTube y ZoundCloud. Sin Rekordbox. Sin Serato."
+    />
+    <meta property="og:image" content="https://zounduct.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Zounduct" />
+
+    <!-- R47 — Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://zounduct.app/" />
+    <meta name="twitter:title" content="Zounduct — Guide Your Zound" />
+    <meta
+      name="twitter:description"
+      content="Tu biblioteca musical, organizada dinámicamente. Detección automática, sync con pendrive, descarga desde YouTube y ZoundCloud."
+    />
+    <meta name="twitter:image" content="https://zounduct.app/og-image.png" />
+
+    <!-- R48 — Schema.org SoftwareApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Zounduct",
+        "operatingSystem": "Windows",
+        "applicationCategory": "MusicApplication",
+        "description": "App desktop para DJs que gestiona la biblioteca musical: detección automática de tracks, sync con pendrive y descarga desde URL.",
+        "url": "https://zounduct.app",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Gratuito",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "2",
+            "priceCurrency": "USD",
+            "eligibleDuration": "P1M",
+            "description": "Precio de lanzamiento (USD 2/mes). Precio regular: USD 4/mes."
+          },
+          {
+            "@type": "Offer",
+            "name": "Cloud",
+            "price": "10",
+            "priceCurrency": "USD",
+            "eligibleDuration": "P1M"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <!--

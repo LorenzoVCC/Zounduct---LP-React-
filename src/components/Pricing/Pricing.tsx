@@ -1,5 +1,6 @@
 import PricingCard from '../PricingCard/PricingCard'
 import cardStyles from '../PricingCard/PricingCard.module.scss'
+import { PRE_LAUNCH } from '../../config/launchMode'
 
 const plans = [
   {
@@ -29,7 +30,9 @@ const plans = [
       'Cualquier plataforma con URL',
       'Multi-biblioteca',
     ],
-    ctaLabel: 'Notificarme',
+    // R44 — pre-launch: "Notificarme" (sin oferta activa todavía).
+    // launch: "Probar Pro" (ya se puede empezar a usar el plan).
+    ctaLabel: PRE_LAUNCH ? 'Notificarme' : 'Probar Pro',
   },
   {
     name: 'Cloud',
@@ -46,6 +49,7 @@ const plans = [
       'Sync entre dispositivos',
       'Acceso prioritario a updates',
     ],
+    // Cloud sigue "Próximamente" sin importar el modo de lanzamiento general.
     ctaLabel: 'Notificarme',
     ctaDisabled: true,
     soon: true,

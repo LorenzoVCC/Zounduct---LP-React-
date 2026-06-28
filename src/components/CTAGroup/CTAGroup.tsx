@@ -1,9 +1,10 @@
+import { PRE_LAUNCH, DOWNLOAD_URL } from '../../config/launchMode'
 import styles from './CTAGroup.module.scss'
 
 function CTAGroup() {
   return (
     <div className={styles.ctas}>
-      <a href="#" className="btn btn-lg">
+      <a href={PRE_LAUNCH ? '#cta' : DOWNLOAD_URL} className="btn btn-lg">
         Descargar gratis
         <svg
           width="14"
