@@ -1,0 +1,581 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.beforeAfter {
+  // El section padding/eyebrow/h2 los hereda de las clases globales (.before-after, .eyebrow, h2)
+  // definidas en main.scss / _base.scss, igual que .features y .problem.
+}
+
+/* ============ CHAOS BLOCK ============ */
+.baChaos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.baChaosLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 80, 80, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+
+  &::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 80, 80, 0.8);
+  }
+}
+
+.baWindow {
+  background: linear-gradient(180deg, rgba(22, 22, 28, 0.95) 0%, rgba(15, 15, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 80, 80, 0.2);
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.baWindowHeader {
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid $border;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $fg-dim;
+}
+
+.baExplorerRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+
+  &.folder {
+    color: rgba(255, 190, 70, 0.75);
+  }
+
+  &.highlight {
+    background: rgba(255, 80, 80, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.baExplorerName {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.baExplorerDate {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 0.62rem;
+  flex-shrink: 0;
+}
+
+.baExplorerBadge {
+  font-size: 0.64rem;
+  padding: 0.12rem 0.45rem;
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: $radius-pill;
+  color: rgba(255, 120, 120, 0.9);
+  flex-shrink: 0;
+}
+
+.baChaosTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $fg;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.baChaosDesc {
+  font-size: 0.9rem;
+  color: $fg-soft;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.baChaosCta {
+  color: $violet-2;
+  border-left: 2px solid $violet;
+  padding-left: 0.85rem;
+}
+
+/* ============ FLOWS ============ */
+.baFlowsHead {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  p {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $fg-dim;
+    margin: 0;
+  }
+}
+
+.baFlows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.baFlowContainer {
+  padding: 2rem;
+  border-radius: $radius-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+
+  &.sin {
+    background: linear-gradient(180deg, rgba(255, 60, 60, 0.05) 0%, rgba(20, 18, 20, 0.4) 100%);
+    border: 1px solid rgba(255, 80, 80, 0.15);
+    filter: saturate(0.7);
+  }
+
+  &.con {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(139, 83, 255, 0.14) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(139, 83, 255, 0.04) 0%, rgba(20, 18, 28, 0.4) 100%);
+    border: 1px solid $violet-line;
+  }
+}
+
+.baFlowTag {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: $radius-pill;
+  align-self: flex-start;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &.sin {
+    color: rgba(255, 130, 130, 0.95);
+    background: rgba(255, 80, 80, 0.1);
+    border: 1px solid rgba(255, 80, 80, 0.25);
+
+    &::before {
+      background: $error;
+      box-shadow: 0 0 8px rgba(255, 80, 80, 0.6);
+    }
+  }
+
+  &.con {
+    color: $violet-2;
+    background: $violet-soft;
+    border: 1px solid $violet-line;
+
+    &::before {
+      background: $violet;
+      box-shadow: 0 0 8px $violet-glow;
+    }
+  }
+}
+
+.baFlowSteps {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.baFlowScroll {
+  // Ya no hace falta scroll: cada fila (sin/con) ocupa el ancho completo de la sección.
+}
+
+.baFlowStep {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+
+  @include mobile {
+    flex: 1 1 auto;
+    width: auto;
+  }
+}
+
+.baFlowStepNum {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  .sin & {
+    color: rgba(255, 110, 110, 0.7);
+  }
+
+  .con & {
+    color: $violet-2;
+  }
+}
+
+.baFlowArrow {
+  align-self: center;
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+  padding: 0 0.4rem;
+  opacity: 0.35;
+
+  &.sin {
+    color: $error;
+  }
+
+  &.con {
+    color: $violet;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.baWindowMini {
+  border-radius: $radius-md;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  border: 1px solid $border;
+
+  &.sin {
+    background: linear-gradient(180deg, rgba(255, 40, 40, 0.05) 0%, rgba(15, 13, 15, 0.6) 100%);
+    border-color: rgba(255, 80, 80, 0.18);
+  }
+
+  &.con {
+    background: linear-gradient(180deg, rgba(139, 83, 255, 0.07) 0%, rgba(15, 13, 20, 0.6) 100%);
+    border-color: $violet-line;
+  }
+}
+
+.baWindowHeaderMini {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid $border;
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  color: $fg-dim;
+}
+
+.baWindowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.red {
+    background: $error;
+  }
+
+  &.violet {
+    background: $violet;
+    box-shadow: 0 0 6px $violet-glow;
+  }
+}
+
+.baMiniContent {
+  padding: 0.85rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.baMiniDescMain {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: $fg;
+}
+
+.baMiniUrl {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.baMiniBtn {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border;
+  color: $fg-soft;
+}
+
+.baMiniFile {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.chaos {
+    color: rgba(255, 130, 130, 0.6);
+  }
+
+  &.drag {
+    color: $violet-2;
+    padding-left: 0.6rem;
+  }
+}
+
+.baMiniProgress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: $radius-pill;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.baMiniProgressBar {
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 110, 110, 0.5);
+}
+
+.baMiniQ {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-style: italic;
+  color: rgba(255, 130, 130, 0.55);
+}
+
+.baMiniHint {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.baMiniTag {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: $violet-2;
+  background: $violet-soft;
+  border-radius: $radius-sm;
+  padding: 0.2rem 0.4rem;
+  align-self: flex-start;
+}
+
+/* Popup style (steps 2 y 3 del lado con) */
+.baPopupHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid $border;
+}
+
+.baPopupBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.baPopupBrandName {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: $violet-2;
+}
+
+.baPopupTitle {
+  font-size: 0.62rem;
+  color: $fg-dim;
+  flex: 1;
+}
+
+.baPopupStatus {
+  font-family: $font-mono;
+  font-size: 0.58rem;
+  color: $success;
+  flex-shrink: 0;
+}
+
+.baPopupTrackBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid $border;
+  font-family: $font-mono;
+  font-size: 0.62rem;
+}
+
+.baPopupTrackIdx {
+  color: $violet-2;
+  flex-shrink: 0;
+}
+
+.baPopupTrackName {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $fg;
+}
+
+.baPopupTrackFmt {
+  color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.baMiniContentSplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+}
+
+.baMiniQueue {
+  padding: 0.5rem 0.4rem;
+  border-right: 1px solid $border;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.baMiniDest {
+  padding: 0.5rem 0.4rem;
+  min-width: 0;
+  overflow: hidden;
+
+  &.muted {
+    opacity: 0.5;
+  }
+}
+
+.baPopupColHeader {
+  font-family: $font-mono;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: $fg-dim;
+  margin-bottom: 0.4rem;
+
+  span {
+    color: $violet-2;
+  }
+}
+
+.baMiniQItem {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  padding: 0.2rem 0;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.active {
+    color: $violet-2;
+  }
+}
+
+.baMiniDestItem {
+  font-family: $font-mono;
+  font-size: 0.58rem;
+  padding: 0.2rem 0.3rem;
+  border-radius: $radius-sm;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.sel {
+    background: $violet-soft;
+    color: $violet-2;
+    font-weight: 600;
+  }
+}
+
+.baFlowStepLabel {
+  text-align: center;
+
+  strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    color: $fg-dim;
+  }
+}
+
+.baFlowSummary {
+  padding: 1rem 1.1rem;
+  border-radius: $radius-md;
+  text-align: center;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.sin {
+    color: rgba(255, 130, 130, 0.95);
+    background: rgba(255, 80, 80, 0.07);
+    border: 1px dashed rgba(255, 80, 80, 0.25);
+  }
+
+  &.con {
+    color: $violet-2;
+    background: $violet-soft;
+    border: 1px dashed $violet-line;
+  }
+}

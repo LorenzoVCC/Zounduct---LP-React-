@@ -28,7 +28,7 @@ const features = [
     description: (
       <>
         Nada se pierde en Descargas. Zounduct detecta cada track y{' '}
-        <strong>te guía hasta la carpeta correcta.</strong>
+        <strong>te ofrece la carpeta correcta.</strong>
       </>
     ),
   },

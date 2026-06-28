@@ -3,6 +3,7 @@ import Nav from './components/Nav/Nav'
 import Hero from './components/Hero/Hero'
 import Brands from './components/Brands/Brands'
 import Problem from './components/Problem/Problem'
+import BeforeAfter from './components/BeforeAfter/BeforeAfter'
 import Features from './components/Features/Features'
 import Audience from './components/Audience/Audience'
 import Pricing from './components/Pricing/Pricing'
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <Brands />
       <Problem />
+      <BeforeAfter />
       <Features />
       <Audience />
       <Pricing />
