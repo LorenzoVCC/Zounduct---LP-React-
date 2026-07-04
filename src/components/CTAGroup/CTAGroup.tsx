@@ -1,10 +1,17 @@
 import { PRE_LAUNCH, DOWNLOAD_URL } from '../../config/launchMode'
+import { useTrackEvent } from '../../hooks/useTrackEvent'
 import styles from './CTAGroup.module.scss'
 
 function CTAGroup() {
+  const { trackEvent } = useTrackEvent()
+
   return (
     <div className={styles.ctas}>
-      <a href={PRE_LAUNCH ? '#cta' : DOWNLOAD_URL} className="btn btn-lg">
+      <a
+        href={PRE_LAUNCH ? '#cta' : DOWNLOAD_URL}
+        className="btn btn-lg"
+        onClick={() => trackEvent('DescargarGratis', { modo: PRE_LAUNCH ? 'pre_launch' : 'launch' })}
+      >
         Descargar gratis
         <svg
           width="14"

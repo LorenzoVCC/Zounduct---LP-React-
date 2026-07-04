@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import type { ToastType } from '../../hooks/useToast'
+import { useTrackEvent } from '../../hooks/useTrackEvent'
 
 interface EmailFormProps {
   showToast: (message: string, type: ToastType) => void
@@ -17,12 +18,14 @@ function encode(data: Record<string, string>) {
 function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
+  const { trackEvent } = useTrackEvent()
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     if (!EMAIL_REGEX.test(email)) {
       showToast('Ingresá un email válido.', 'error')
+      trackEvent('EmailSubmit', { resultado: 'error_validacion' })
       return
     }
 
@@ -37,11 +40,14 @@ function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps)
       if (res.ok) {
         showToast('¡Listo! Te avisamos cuando Zounduct esté disponible.', 'success')
         setEmail('')
+        trackEvent('EmailSubmit', { resultado: 'exito' })
       } else {
         showToast('Algo salió mal. Intentá de nuevo.', 'error')
+        trackEvent('EmailSubmit', { resultado: 'error_servidor' })
       }
     } catch {
       showToast('Algo salió mal. Intentá de nuevo.', 'error')
+      trackEvent('EmailSubmit', { resultado: 'error_red' })
     } finally {
       setLoading(false)
     }

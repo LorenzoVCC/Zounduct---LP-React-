@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import useScrollReveal from '../../hooks/useScrollReveal'
+import { useTrackEvent } from '../../hooks/useTrackEvent'
 import styles from './PricingCard.module.scss'
 
 interface PricingCardProps {
@@ -28,6 +29,7 @@ function PricingCard({
   delay,
 }: PricingCardProps) {
   const { ref, visible } = useScrollReveal<HTMLDivElement>()
+  const { trackEvent } = useTrackEvent()
 
   return (
     <div
@@ -61,6 +63,7 @@ function PricingCard({
         <a
           href="#"
           className={`btn ${styles.btnOutline} ${ctaDisabled ? styles.btnDisabled : ''}`}
+          onClick={() => trackEvent('PricingCardClick', { plan: name, cta: ctaLabel })}
         >
           {ctaLabel}
         </a>
