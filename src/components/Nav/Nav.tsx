@@ -16,6 +16,7 @@ function Nav() {
         <a href="#features">Cómo funciona</a>
         <a href="#para-quien">Para vos</a>
         <a href="#pricing">Planes</a>
+        <a href="#faq">FAQ</a>
         <a
           href={PRE_LAUNCH ? '#cta' : DOWNLOAD_URL}
           className="btn btn-sm"

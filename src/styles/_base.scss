@@ -108,3 +108,34 @@ body {
   border-radius: $radius-pill;
   background: transparent;
 }
+
+// Foco visible para navegación con teclado (el hover solo no alcanza)
+:focus-visible {
+  outline: 2px solid $violet-2;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(139, 83, 255, 0.35);
+  color: $fg;
+}
+
+// Los anchors del nav no quedan tapados por la nav fija
+section[id] { scroll-margin-top: 5rem; }
+
+// Respeta a quien pidió menos movimiento en su sistema
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal { opacity: 1; transform: none; }
+}

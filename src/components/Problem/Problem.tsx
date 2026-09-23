@@ -59,9 +59,9 @@ function Problem() {
     <section className="problem" id="problema">
       <div className="eyebrow">El problema</div>
       <h2>
-        Tu biblioteca bajo control.
+        Descargar es fácil.
         <br />
-        Tus tracks, Zounduct los ordena.
+        Ordenar, no tanto.
       </h2>
 
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.problemGrid}`}>

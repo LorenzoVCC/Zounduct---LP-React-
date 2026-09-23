@@ -1,6 +1,7 @@
 import CTAGroup from '../CTAGroup/CTAGroup'
 import ProductMockup from '../ProductMockup/ProductMockup'
 import StatsRow from '../StatsRow/StatsRow'
+import { PRE_LAUNCH } from '../../config/launchMode'
 import useScrollReveal from '../../hooks/useScrollReveal'
 import styles from './Hero.module.scss'
 
@@ -12,7 +13,7 @@ function Hero() {
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.heroContent}`}>
         <div className={`pill ${styles.pill}`}>
           <span className="pill-dot" />
-          Próximamente
+          {PRE_LAUNCH ? 'Beta abierta muy pronto' : 'Disponible para Windows'}
         </div>
 
         <h1 className={styles.title}>

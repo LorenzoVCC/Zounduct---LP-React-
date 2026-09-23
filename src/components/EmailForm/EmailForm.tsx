@@ -57,6 +57,9 @@ function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps)
     <form className="cta-form" name="beta" onSubmit={handleSubmit} noValidate>
       <input
         type="email"
+        name="email"
+        aria-label="Tu email"
+        autoComplete="email"
         placeholder="tu@email.com"
         required
         value={email}

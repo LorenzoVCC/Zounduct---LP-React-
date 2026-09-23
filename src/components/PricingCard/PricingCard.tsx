@@ -8,9 +8,11 @@ interface PricingCardProps {
   soonBadge?: string
   priceContent: ReactNode
   showLaunchBadge?: boolean
+  featured?: boolean
   description: string
   features: string[]
   ctaLabel: string
+  ctaHref: string
   ctaDisabled?: boolean
   soon?: boolean
   delay: number
@@ -21,9 +23,11 @@ function PricingCard({
   soonBadge,
   priceContent,
   showLaunchBadge,
+  featured,
   description,
   features,
   ctaLabel,
+  ctaHref,
   ctaDisabled,
   soon,
   delay,
@@ -37,7 +41,10 @@ function PricingCard({
       className={`reveal ${visible ? 'visible' : ''}`}
       style={{ transitionDelay: `${delay}ms`, height: '100%' }}
     >
-      <div className={`${styles.pricingCard} ${soon ? styles.pricingCardSoon : ''}`}>
+      <div
+        className={`${styles.pricingCard} ${featured ? styles.pricingCardFeatured : ''} ${soon ? styles.pricingCardSoon : ''}`}
+      >
+        {featured && <div className={styles.pricingFeaturedBadge}>Recomendado</div>}
         <div className={styles.pricingName}>
           {name}
           {soonBadge && <span className={styles.pricingSoon}>{soonBadge}</span>}
@@ -61,8 +68,10 @@ function PricingCard({
         </ul>
 
         <a
-          href="#"
-          className={`btn ${styles.btnOutline} ${ctaDisabled ? styles.btnDisabled : ''}`}
+          href={ctaHref}
+          className={`btn ${featured ? styles.btnFeatured : styles.btnOutline} ${ctaDisabled ? styles.btnDisabled : ''}`}
+          aria-disabled={ctaDisabled || undefined}
+          tabIndex={ctaDisabled ? -1 : undefined}
           onClick={() => trackEvent('PricingCardClick', { plan: name, cta: ctaLabel })}
         >
           {ctaLabel}

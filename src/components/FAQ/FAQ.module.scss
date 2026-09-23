@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 4rem;
+  align-items: start;
+
+  @include mobile { grid-template-columns: 1fr; gap: 1rem; }
+  @include tablet { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+.faqHeader {
+  position: sticky;
+  top: 7rem;
+
+  @include mobile { position: static; }
+  @include tablet { position: static; }
+
+  h2 { font-size: clamp(2.25rem, 4.5vw, 3.75rem); }
+}
+
+.faqList {
+  border-top: 1px solid $border-bright;
+}
+
+.faqItem {
+  border-bottom: 1px solid $border-bright;
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: $fg;
+    transition: color $transition;
+
+    &::-webkit-details-marker { display: none; }
+
+    &:hover { color: $violet-2; }
+  }
+
+  p {
+    color: $fg-soft;
+    line-height: 1.65;
+    max-width: 62ch;
+    padding: 0 3rem 1.75rem 0;
+    animation: faqIn 0.4s $ease-out;
+
+    @include mobile { padding-right: 0; }
+  }
+
+  &[open] .faqIcon::after { transform: rotate(0deg); }
+  &[open] summary { color: $violet-2; }
+}
+
+// "+" que se convierte en "−" al abrir
+.faqIcon {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid $border-bright;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 1.5px;
+    margin: -0.75px 0 0 -5px;
+    background: currentColor;
+    transition: transform 0.3s $ease-out;
+  }
+
+  &::after { transform: rotate(90deg); }
+}
+
+@keyframes faqIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

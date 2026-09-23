@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type JSX } from 'react'
 
 const BACKEND_URL = 'https://zounduct-backend.onrender.com'
 const PASSWORD = import.meta.env.VITE_DASHBOARD_PASSWORD as string

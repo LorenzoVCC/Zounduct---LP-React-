@@ -12,7 +12,7 @@ function BeforeAfter() {
         className={`reveal ${visible ? 'visible' : ''} ${styles.baChaos}`}
       >
         <div>
-          <div className={styles.baChaosLabel}>El problema</div>
+          <div className={styles.baChaosLabel}>Tu carpeta de Descargas</div>
           <div className={styles.baWindow}>
             <div className={styles.baWindowHeader}>📁 Downloads</div>
             <div>

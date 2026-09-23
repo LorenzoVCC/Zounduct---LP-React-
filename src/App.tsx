@@ -8,6 +8,7 @@ import BeforeAfter from './components/BeforeAfter/BeforeAfter'
 import Features from './components/Features/Features'
 import Audience from './components/Audience/Audience'
 import Pricing from './components/Pricing/Pricing'
+import FAQ from './components/FAQ/FAQ'
 import CTA from './components/CTA/CTA'
 import Footer from './components/Footer/Footer'
 import RoadmapPanel from './components/RoadmapPanel/RoadmapPanel'
@@ -47,6 +48,7 @@ function App() {
         <Features />
         <Audience />
         <Pricing />
+        <FAQ />
         <CTA />
         <Footer />
       </Layout>

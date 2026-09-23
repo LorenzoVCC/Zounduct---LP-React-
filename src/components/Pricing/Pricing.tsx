@@ -1,6 +1,6 @@
 import PricingCard from '../PricingCard/PricingCard'
 import cardStyles from '../PricingCard/PricingCard.module.scss'
-import { PRE_LAUNCH } from '../../config/launchMode'
+import { PRE_LAUNCH, DOWNLOAD_URL } from '../../config/launchMode'
 
 const plans = [
   {
@@ -13,7 +13,8 @@ const plans = [
       'MP3 · WAV · AIFF',
       '1 biblioteca',
     ],
-    ctaLabel: 'Empezar gratis',
+    ctaLabel: PRE_LAUNCH ? 'Sumate a la beta' : 'Empezar gratis',
+    ctaHref: PRE_LAUNCH ? '#cta' : DOWNLOAD_URL,
   },
   {
     name: 'Pro',
@@ -23,6 +24,7 @@ const plans = [
       </>
     ),
     showLaunchBadge: true,
+    featured: true,
     description: 'Para el DJ que descarga de todas partes.',
     features: [
       'Todo lo del plan Gratuito',
@@ -33,6 +35,7 @@ const plans = [
     // R44 — pre-launch: "Notificarme" (sin oferta activa todavía).
     // launch: "Probar Pro" (ya se puede empezar a usar el plan).
     ctaLabel: PRE_LAUNCH ? 'Notificarme' : 'Probar Pro',
+    ctaHref: PRE_LAUNCH ? '#cta' : DOWNLOAD_URL,
   },
   {
     name: 'Cloud',
@@ -51,6 +54,7 @@ const plans = [
     ],
     // Cloud sigue "Próximamente" sin importar el modo de lanzamiento general.
     ctaLabel: 'Notificarme',
+    ctaHref: '#cta',
     ctaDisabled: true,
     soon: true,
   },

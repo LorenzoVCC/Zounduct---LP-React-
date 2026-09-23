@@ -39,7 +39,9 @@ function CTA() {
         <EmailForm showToast={showToast} ctaLabel={PRE_LAUNCH ? 'Sumate a la beta' : 'Descargar gratis'} />
 
         <div className={styles.ctaMeta}>
-          No requiere tarjeta · Cancelás cuando quieras · Hecho para DJs
+          {PRE_LAUNCH
+            ? 'Gratis · Sin spam · Hecho para DJs'
+            : 'No requiere tarjeta · Cancelás cuando quieras · Hecho para DJs'}
         </div>
       </div>
 
