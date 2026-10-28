@@ -35,7 +35,7 @@ function Footer() {
               openPanel()
             }}
           >
-            El Proyecto
+            El proyecto
           </a>
           <a href="#cta">Beta</a>
           <a href="#hero">Descarga</a>

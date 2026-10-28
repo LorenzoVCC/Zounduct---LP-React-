@@ -50,22 +50,20 @@ function BeforeAfter() {
           </div>
         </div>
         <div>
-          <h2 className={styles.baChaosTitle}>¿Te suena conocido?</h2>
+          <h2 className={styles.baChaosTitle}>¿Te resulta familiar?</h2>
           <p className={styles.baChaosDesc}>
-            Descargás desde cualquier plataforma. El archivo cae en Descargas. Lo dejás para
-            después. Se acumula. Cuando querés ordenar ya no sabés cuál era cuál — tenés que
-            reescuchar todo de vuelta. Y después moverlo a mano.
+            {/* Issue #2 (copy neutro): un solo párrafo, sin voseo; se saca "Cada vez. Siempre." */}
+            Descargas un track y queda en Descargas. Lo dejas para después, se acumulan, y cuando
+            vuelves ya no recuerdas cuál era cuál: hay que escucharlos de nuevo y moverlos a mano.
           </p>
-          <p className={styles.baChaosDesc}>Cada vez. Siempre.</p>
           <p className={`${styles.baChaosDesc} ${styles.baChaosCta}`}>
-            Descargás. Zounduct detecta el archivo automáticamente y te permite ordenarlo en el
-            momento, sin buscar, sin mover a mano.
+            Con Zounduct, cada descarga se detecta al momento y la clasificas en un clic.
           </p>
         </div>
       </div>
 
       <div className={styles.baFlowsHead}>
-        <p>Mismo punto de partida. Distinta organización.</p>
+        <p>Mismo punto de partida. Distinto resultado.</p>
       </div>
 
       <div className={styles.baFlows}>
@@ -80,8 +78,8 @@ function BeforeAfter() {
               variant="sin"
               num="01"
               windowTitle="Herramienta de descarga"
-              labelTitle="Descargás"
-              labelSub="El archivo cae donde sea"
+              labelTitle="Descargas"
+              labelSub="El archivo queda en cualquier lugar"
               showArrow
               content={
                 <div className={styles.baMiniContent}>
@@ -96,8 +94,8 @@ function BeforeAfter() {
               variant="sin"
               num="02"
               windowTitle="📁 Downloads"
-              labelTitle="Se acumula en Descargas"
-              labelSub="No sabés qué es qué"
+              labelTitle="Se acumula"
+              labelSub="Sin contexto"
               showArrow
               content={
                 <div className={styles.baMiniContent}>
@@ -114,12 +112,12 @@ function BeforeAfter() {
               variant="sin"
               num="03"
               windowTitle="▶ Reproductor"
-              labelTitle="Reescuchás para recordar"
-              labelSub="Perdiste el contexto"
+              labelTitle="Vuelves a escuchar"
+              labelSub="Para recordar qué era"
               showArrow
               content={
                 <div className={styles.baMiniContent}>
-                  <div className={styles.baMiniDescMain}>Reescuchás para recordar</div>
+                  <div className={styles.baMiniDescMain}>Vuelves a escuchar</div>
                   <div className={styles.baMiniFile}>🎵 sector_nine_raw.aiff</div>
                   <div className={styles.baMiniProgress}>
                     <div className={styles.baMiniProgressBar} />
@@ -133,12 +131,12 @@ function BeforeAfter() {
               variant="sin"
               num="04"
               windowTitle="📁 Biblioteca de música"
-              labelTitle="Movés a mano, cada vez"
-              labelSub="Trabajo repetitivo, siempre"
+              labelTitle="Lo mueves a mano"
+              labelSub="Cada vez"
               showArrow={false}
               content={
                 <div className={styles.baMiniContent}>
-                  <div className={styles.baMiniDescMain}>Movés a mano, cada vez</div>
+                  <div className={styles.baMiniDescMain}>Lo mueves a mano</div>
                   <div className={styles.baMiniFile}>📁 Techno</div>
                   <div className={`${styles.baMiniFile} ${styles.drag}`}>↳ sector_nine_raw.aiff</div>
                   <div className={styles.baMiniHint}>arrastrar a la carpeta...</div>
@@ -149,7 +147,7 @@ function BeforeAfter() {
             </div>
 
             <div className={`${styles.baFlowSummary} ${styles.sin}`}>
-              4 pasos manuales. Cada track. Siempre.
+              Cuatro pasos manuales por cada track.
             </div>
         </div>
 
@@ -163,15 +161,15 @@ function BeforeAfter() {
               variant="con"
               num="01"
               windowTitle="Origen de descarga"
-              labelTitle="Descargás, listo"
-              labelSub="Igual que antes"
+              labelTitle="Descargas"
+              labelSub="Como siempre"
               showArrow
               content={
                 <div className={styles.baMiniContent}>
-                  <div className={styles.baMiniDescMain}>Tu flujo no cambia en nada</div>
+                  <div className={styles.baMiniDescMain}>Tu flujo no cambia</div>
                   <div className={styles.baMiniUrl}>track_source.com/track/...</div>
                   <div className={styles.baMiniBtn}>↓ Descargar</div>
-                  <div className={styles.baMiniTag}>Zounduct está viendo...</div>
+                  <div className={styles.baMiniTag}>Zounduct detectando…</div>
                 </div>
               }
             />
@@ -180,8 +178,8 @@ function BeforeAfter() {
               variant="con"
               num="02"
               windowTitle="Zounduct"
-              labelTitle="Zounduct lo detecta solo"
-              labelSub="Automático, sin intervención"
+              labelTitle="Zounduct lo detecta"
+              labelSub="Automáticamente"
               showArrow
               content={
                 <>
@@ -191,7 +189,7 @@ function BeforeAfter() {
                       <span className={styles.baPopupBrandName}>Zounduct</span>
                     </div>
                     <span className={styles.baPopupTitle}>Categorizar track</span>
-                    <span className={styles.baPopupStatus}>● PD conectado</span>
+                    <span className={styles.baPopupStatus}>● USB conectado</span>
                   </div>
                   <div className={styles.baPopupTrackBar}>
                     <span className={styles.baPopupTrackIdx}>1/1</span>
@@ -219,8 +217,8 @@ function BeforeAfter() {
               variant="con"
               num="03"
               windowTitle="Zounduct"
-              labelTitle="Elegís la carpeta"
-              labelSub="Un click. Listo."
+              labelTitle="Eliges la carpeta"
+              labelSub="Un clic"
               showArrow={false}
               content={
                 <>
@@ -230,7 +228,7 @@ function BeforeAfter() {
                       <span className={styles.baPopupBrandName}>Zounduct</span>
                     </div>
                     <span className={styles.baPopupTitle}>Categorizar track</span>
-                    <span className={styles.baPopupStatus}>● PD conectado</span>
+                    <span className={styles.baPopupStatus}>● USB conectado</span>
                   </div>
                   <div className={styles.baPopupTrackBar}>
                     <span className={styles.baPopupTrackIdx}>1/1</span>
@@ -257,7 +255,7 @@ function BeforeAfter() {
           </div>
 
             <div className={`${styles.baFlowSummary} ${styles.con}`}>
-              Listo. Ordenado, sincronizado, sin esfuerzo.
+              Clasificado y sincronizado.
             </div>
         </div>
 

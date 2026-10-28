@@ -46,14 +46,14 @@ function ProductMockup() {
           </div>
           <div className={styles.mockupStatus}>
             <span className={styles.mockupStatusDot} />
-            PD conectado
+            USB conectado
           </div>
         </div>
 
         {/* SB + FM: descarga por link y formato */}
         <div className={styles.mockupDownloadBar}>
           <div className={styles.mockupUrlInput}>
-            Pegá un link de YouTube, SoundCloud, Bandcamp…
+            Pega un enlace de YouTube, SoundCloud o Bandcamp…
           </div>
           <div className={styles.mockupDownloadBtn}>Descargar</div>
         </div>

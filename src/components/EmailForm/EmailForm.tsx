@@ -15,7 +15,7 @@ function encode(data: Record<string, string>) {
     .join('&')
 }
 
-function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps) {
+function EmailForm({ showToast, ctaLabel = 'Únete a la beta' }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const { trackEvent } = useTrackEvent()
@@ -24,7 +24,7 @@ function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps)
     e.preventDefault()
 
     if (!EMAIL_REGEX.test(email)) {
-      showToast('Ingresá un email válido.', 'error')
+      showToast('Ingresa un email válido.', 'error')
       trackEvent('EmailSubmit', { resultado: 'error_validacion' })
       return
     }
@@ -38,15 +38,15 @@ function EmailForm({ showToast, ctaLabel = 'Sumate a la beta' }: EmailFormProps)
       })
 
       if (res.ok) {
-        showToast('¡Listo! Te avisamos cuando Zounduct esté disponible.', 'success')
+        showToast('¡Listo! Te avisaremos cuando Zounduct esté disponible.', 'success')
         setEmail('')
         trackEvent('EmailSubmit', { resultado: 'exito' })
       } else {
-        showToast('Algo salió mal. Intentá de nuevo.', 'error')
+        showToast('Algo salió mal. Inténtalo de nuevo.', 'error')
         trackEvent('EmailSubmit', { resultado: 'error_servidor' })
       }
     } catch {
-      showToast('Algo salió mal. Intentá de nuevo.', 'error')
+      showToast('Algo salió mal. Inténtalo de nuevo.', 'error')
       trackEvent('EmailSubmit', { resultado: 'error_red' })
     } finally {
       setLoading(false)

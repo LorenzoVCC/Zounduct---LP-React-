@@ -23,9 +23,10 @@ function Hero() {
         </h1>
 
         <p className={styles.sub}>
-          Tu biblioteca musical, organizada dinámicamente. Detección automática, sync con
-          pendrive, descarga desde YouTube,
-          SoundCloud, Bandcamp y más. <span className="muted-strong">Sin caos.</span>
+          {/* Issue #2 (copy neutro): español neutro con "tú", frases cortas y "USB" en vez de
+              "pendrive" (la app sigue diciendo pendrive; acá buscamos el término más neutro). */}
+          Organiza tu biblioteca musical sin esfuerzo. Zounduct detecta cada track nuevo, te
+          ayuda a clasificarlo y mantiene tu USB sincronizado.
         </p>
 
         <CTAGroup />
