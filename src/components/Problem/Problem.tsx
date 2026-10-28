@@ -36,11 +36,13 @@ function ProblemIconSvg() {
   )
 }
 
+// Issue #2 (copy neutro): cada ítem es una frase completa; el <strong> marca solo su
+// primera parte, para mantener el diseño de la lista.
 const problems = [
-  { strong: 'Tracks sin ordenar', rest: 'enterrados en tus descargas.' },
-  { strong: 'USB desincronizado', rest: '— te falta algo en cada fecha' },
-  { strong: 'Problemas de compatibilidad', rest: 'con diferentes formatos de archivo.' },
-  { strong: '30 minutos antes del set', rest: 'buscando un archivo.' },
+  { strong: 'Tracks sin clasificar', rest: 'acumulados en Descargas.' },
+  { strong: 'Un USB desactualizado', rest: 'antes de cada fecha.' },
+  { strong: 'Formatos distintos', rest: 'que no se comportan igual.' },
+  { strong: 'Tiempo perdido buscando un archivo', rest: 'antes del set.' },
 ]
 
 const terminalLines = [
@@ -58,17 +60,12 @@ function Problem() {
   return (
     <section className="problem" id="problema">
       <div className="eyebrow">El problema</div>
-      <h2>
-        Tu biblioteca bajo control.
-        <br />
-        Tus tracks, Zounduct los ordena.
-      </h2>
+      <h2>Tu biblioteca, bajo control.</h2>
 
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.problemGrid}`}>
         <div>
           <p className="section-sub">
-            Si sos DJ y gestionás tu propia biblioteca musical, sabés exactamente de qué
-            hablamos.
+            Si gestionas tu propia biblioteca, conoces el problema.
           </p>
           <ul className={styles.problemList}>
             {problems.map((item) => (

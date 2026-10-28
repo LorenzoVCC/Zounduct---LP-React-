@@ -13,7 +13,7 @@ function Brands() {
   return (
     <section className={styles.brands}>
       <div className={styles.brandsLabel}>
-        YouTube, SoundCloud, Bandcamp y más. Directo a tu biblioteca.
+        Descarga desde YouTube, SoundCloud y Bandcamp. En MP3, WAV o AIFF.
       </div>
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.brandsList}`}>
         {platforms.map((platform) => (

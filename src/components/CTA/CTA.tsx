@@ -22,7 +22,7 @@ function CTA() {
           <h2>
             Tu próximo set
             <br />
-            empieza acá.
+            empieza aquí.
           </h2>
         ) : (
           <h2>
@@ -32,15 +32,16 @@ function CTA() {
           </h2>
         )}
         <p>
-          Sumate a la lista y enterate cuando salga.{' '}
-          <span className="muted-strong">Sin spam, sin vueltas.</span>
+          {/* Issue #2 (copy neutro): sin voseo ni lunfardo ("sin vueltas") */}
+          Únete a la lista y te avisamos cuando esté disponible.{' '}
+          <span className="muted-strong">Sin spam.</span>
         </p>
 
-        <EmailForm showToast={showToast} ctaLabel={PRE_LAUNCH ? 'Sumate a la beta' : 'Descargar gratis'} />
+        <EmailForm showToast={showToast} ctaLabel={PRE_LAUNCH ? 'Únete a la beta' : 'Descargar gratis'} />
 
         <div className={styles.ctaMeta}>
           {/* Issue #2: se suma "Para Windows" — es el único sistema que soporta la app hoy */}
-          Para Windows · No requiere tarjeta · Hecho para DJs
+          Para Windows · Sin tarjeta · Hecho para DJs
         </div>
       </div>
 

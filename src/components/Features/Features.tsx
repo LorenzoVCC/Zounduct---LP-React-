@@ -2,8 +2,8 @@ import FeatureCard from './FeatureCard'
 import styles from './Features.module.scss'
 
 // Issue #2: las features cuentan lo que la app hace HOY (rama `features` de Sounduct).
-// Se pasa de 3 a 8 tarjetas con el mismo FeatureCard: las 3 originales (corregidas) +
-// 5 cosas que la app ya hace y la landing no contaba.
+// Copy neutro (vuelta 2): frases cortas, sin voseo y sin negritas en medio de la frase.
+// La 08 no dice "nada se sube a la nube": hay un plan Cloud y una plataforma a futuro.
 const features = [
   {
     number: '01',
@@ -21,14 +21,9 @@ const features = [
         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
       </svg>
     ),
-    title: 'Descarga multiplataforma',
-    // Antes: "cualquier plataforma" — prometía de más. Nombramos las que la app sugiere.
-    description: (
-      <>
-        Pegás un link de YouTube, SoundCloud, Bandcamp y más. Elegís MP3, WAV o AIFF.{' '}
-        <strong>Cae directo en la carpeta correcta.</strong>
-      </>
-    ),
+    title: 'Descarga por enlace',
+    description:
+      'Pega un enlace de YouTube, SoundCloud o Bandcamp, elige el formato y el track llega directo a su carpeta.',
   },
   {
     number: '02',
@@ -47,12 +42,7 @@ const features = [
       </svg>
     ),
     title: 'Detección automática',
-    description: (
-      <>
-        Nada se pierde en Descargas. Zounduct detecta cada track y{' '}
-        <strong>te ofrece la carpeta correcta.</strong>
-      </>
-    ),
+    description: 'Cada archivo nuevo en Descargas se detecta al instante, listo para clasificar.',
   },
   {
     number: '03',
@@ -70,15 +60,9 @@ const features = [
         <path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3" />
       </svg>
     ),
-    title: 'Sync con pendrive',
-    // Antes decía "Automático, siempre", que no es exacto: la app muestra el diff y el
-    // usuario confirma (y el sync automático se puede proteger con PIN). Es mejor argumento.
-    description: (
-      <>
-        Conectás el pendrive y Zounduct te muestra qué se agrega, qué se mueve y qué se borra.{' '}
-        <strong>Nada cambia hasta que confirmás.</strong> Y si querés, lo protegés con un PIN.
-      </>
-    ),
+    title: 'Sincronización con USB',
+    description:
+      'Al conectarlo, ves qué se agrega, mueve o elimina. Nada cambia sin tu confirmación. PIN opcional.',
   },
   {
     number: '04',
@@ -97,13 +81,8 @@ const features = [
       </svg>
     ),
     title: 'BPM, tonalidad y duración',
-    // La app los lee de los tags del archivo y los muestra como chips BPM / KEY / DUR.
-    description: (
-      <>
-        Cada track muestra su BPM, su tonalidad y su duración, leídos de los tags.{' '}
-        <strong>Los tenés a la vista mientras decidís dónde va.</strong>
-      </>
-    ),
+    description:
+      'Leídos de las etiquetas del archivo y visibles mientras decides dónde va cada track.',
   },
   {
     number: '05',
@@ -122,14 +101,8 @@ const features = [
         <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
       </svg>
     ),
-    title: 'Escuchá antes de decidir',
-    // Reproductor integrado + opción "escuchar antes de enviar" para descargas por link.
-    description: (
-      <>
-        Reproductor integrado para escuchar cada track antes de moverlo. Y si querés, lo que bajás
-        por link también pasa por ahí <strong>antes de elegir carpeta.</strong>
-      </>
-    ),
+    title: 'Preescucha integrada',
+    description: 'Escucha cada track antes de moverlo, incluso los que descargaste por enlace.',
   },
   {
     number: '06',
@@ -148,13 +121,8 @@ const features = [
         <path d="M12 11v6M9 14h6" />
       </svg>
     ),
-    title: 'Tus carpetas, sin salir de la app',
-    description: (
-      <>
-        Creás, renombrás y borrás carpetas y subcarpetas desde Zounduct.{' '}
-        <strong>Sin abrir el explorador.</strong>
-      </>
-    ),
+    title: 'Gestión de carpetas',
+    description: 'Crea, renombra y elimina carpetas y subcarpetas desde la misma ventana.',
   },
   {
     number: '07',
@@ -173,14 +141,9 @@ const features = [
         <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10" />
       </svg>
     ),
-    title: 'Descargas que no se rompen',
-    // La app espera a que vuelva la conexión y retoma; los errores tienen títulos claros.
-    description: (
-      <>
-        Si se corta internet, la descarga espera a que vuelva y sigue sola. Y si algo falla,{' '}
-        <strong>te explica qué pasó en criollo.</strong>
-      </>
-    ),
+    title: 'Descargas confiables',
+    description:
+      'Si se corta la conexión, la descarga se reanuda sola. Si algo falla, un mensaje claro indica qué hacer.',
   },
   {
     number: '08',
@@ -199,13 +162,9 @@ const features = [
         <path d="M9 12l2 2 4-4" />
       </svg>
     ),
-    title: 'Tu música queda en tu PC',
-    description: (
-      <>
-        Nada se sube a la nube. Tu biblioteca vive en tu PC y en tu pendrive.{' '}
-        <strong>En ningún otro lado.</strong>
-      </>
-    ),
+    title: 'Tu biblioteca, bajo tu control',
+    description:
+      'Tus archivos están en tu equipo y en tu USB. Nada sale de ahí sin que lo decidas.',
   },
 ]
 
@@ -214,12 +173,13 @@ function Features() {
     <section className="features" id="features">
       <div className="eyebrow">Cómo funciona</div>
       <h2>
-        Tu flujo de descarga,
+        Tu flujo de trabajo,
         <br />
         sin fricción.
       </h2>
       <p className="section-sub">
-        Zounduct vive en el system tray. No abrís nada. Actúa cuando hay algo para hacer.
+        Zounduct funciona en segundo plano desde la bandeja del sistema y aparece solo cuando hay
+        algo que clasificar.
       </p>
 
       <div className={styles.featuresGrid}>

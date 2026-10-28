@@ -33,6 +33,7 @@
 }
 
 .ctaMeta {
+  text-wrap: balance; // Issue #2: en celular no deja "DJs" sola en la segunda línea
   font-family: $font-mono;
   font-size: 0.75rem;
   color: $fg-dim;

@@ -50,27 +50,27 @@ function RoadmapPanel() {
 
         <h2>¿Por qué existe Zounduct?</h2>
 
+        {/* Issue #2 (copy neutro): texto aprobado por Lolo el 28/10 */}
         <p>
-          Crecimos escuchando música electrónica. Con el tiempo, construimos nuestras propias
-          colecciones — mezclando por hobby, organizando por necesidad.
+          Crecimos escuchando música electrónica y, con el tiempo, armamos nuestras propias
+          colecciones: mezclando por gusto y organizando por necesidad.
         </p>
 
         <p>
-          El problema apareció solo: cada track nuevo requería reescucharlo, categorizarlo a mano
-          y moverlo a la carpeta correcta. Un proceso pequeño, pero constante.{' '}
-          <strong>El que gestiona su propia biblioteca sabe exactamente de qué hablamos.</strong>
+          Cada track nuevo había que escucharlo otra vez, clasificarlo y moverlo a mano. Un proceso
+          pequeño, pero constante.{' '}
+          <strong>Quien gestiona su propia biblioteca lo conoce bien.</strong>
         </p>
 
         <p>
-          En un momento nos preguntamos por qué no existía una herramienta que simplificara eso.
-          Como no la encontramos, la construimos. Zounduct nació como una solución para nosotros
-          mismos — y cuando vimos el tiempo que ahorraba, entendimos que podía servirle a muchos
-          más.
+          No encontramos una herramienta que lo resolviera, así que la construimos. Zounduct empezó
+          como una solución para nosotros y, al ver el tiempo que ahorraba, entendimos que podía
+          servirle a muchos más.
         </p>
 
         <p>
-          No viene de una oficina adivinando qué necesita un DJ.{' '}
-          <strong>Viene de haberlo vivido.</strong>
+          No nace de una oficina que imagina qué necesita un DJ.{' '}
+          <strong>Nace de haberlo vivido.</strong>
         </p>
       </aside>
     </>

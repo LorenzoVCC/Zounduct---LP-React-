@@ -6,10 +6,10 @@ const plans = [
   {
     name: 'Gratuito',
     priceContent: '$0',
-    description: 'Para empezar a ordenar tu biblioteca hoy.',
+    description: 'Para empezar a organizar tu biblioteca hoy.',
     features: [
       'Detección automática de tracks',
-      'Sync con pendrive',
+      'Sincronización con USB', // Issue #2: barrido "pendrive" → "USB" (solo el término)
       'MP3 · WAV · AIFF',
       '1 biblioteca',
     ],
@@ -23,11 +23,12 @@ const plans = [
       </>
     ),
     showLaunchBadge: true,
-    description: 'Para el DJ que descarga de todas partes.',
+    description: 'Para el DJ que descarga de muchas fuentes.',
     features: [
       'Todo lo del plan Gratuito',
       'Descarga desde URL ilimitada',
-      'Cualquier plataforma con URL',
+      // Issue #2: alineado con el resto de la página (antes: "Cualquier plataforma con URL")
+      'YouTube, SoundCloud, Bandcamp y más',
       'Multi-biblioteca',
     ],
     // R44 — pre-launch: "Notificarme" (sin oferta activa todavía).
@@ -42,12 +43,12 @@ const plans = [
         USD 10 <span>/ mes</span>
       </>
     ),
-    description: 'Para sincronizar entre dispositivos y tener backup.',
+    description: 'Para sincronizar entre dispositivos y tener respaldo.',
     features: [
       'Todo lo del plan Pro',
-      'Backup automático',
-      'Sync entre dispositivos',
-      'Acceso prioritario a updates',
+      'Respaldo automático',
+      'Sincronización entre dispositivos',
+      'Acceso prioritario a novedades',
     ],
     // Cloud sigue "Próximamente" sin importar el modo de lanzamiento general.
     ctaLabel: 'Notificarme',
@@ -60,8 +61,8 @@ function Pricing() {
   return (
     <section className="pricing" id="pricing">
       <div className="eyebrow">Planes</div>
-      <h2>El precio no es el problema.</h2>
-      <p className="section-sub">Empezá gratis. Sumá potencia cuando lo necesites.</p>
+      <h2>Empieza gratis.</h2>
+      <p className="section-sub">Agrega más funciones cuando las necesites.</p>
 
       <div className={cardStyles.pricingGrid}>
         {plans.map((plan, i) => (

@@ -96,6 +96,7 @@
     color: $fg-soft;
     text-decoration: none;
     font-size: 0.85rem;
+    white-space: nowrap; // Issue #2: que "Cómo funciona" / "Para quién" no se partan
     transition: color $transition;
 
     &:hover { color: $fg; }
