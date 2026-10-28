@@ -12,7 +12,8 @@ function Hero() {
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.heroContent}`}>
         <div className={`pill ${styles.pill}`}>
           <span className="pill-dot" />
-          Próximamente
+          {/* Issue #2: la landing no decía en ningún lado que la app es para Windows */}
+          Próximamente para Windows
         </div>
 
         <h1 className={styles.title}>
@@ -23,7 +24,8 @@ function Hero() {
 
         <p className={styles.sub}>
           Tu biblioteca musical, organizada dinámicamente. Detección automática, sync con
-          pendrive, descarga desde cualquier plataforma. <span className="muted-strong">Sin caos.</span>
+          pendrive, descarga desde YouTube,
+          SoundCloud, Bandcamp y más. <span className="muted-strong">Sin caos.</span>
         </p>
 
         <CTAGroup />

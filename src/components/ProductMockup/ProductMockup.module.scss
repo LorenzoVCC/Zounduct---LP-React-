@@ -42,6 +42,7 @@
   border-bottom: 1px solid $border;
   background: rgba(0, 0, 0, 0.25);
   gap: 1rem;
+  justify-content: space-between; // Issue #2: Head = marca + estado, sin título central
 }
 
 .mockupBrand {
@@ -74,13 +75,70 @@
   color: $fg;
 }
 
-.mockupTitle {
-  font-family: $font-mono;
+// ── SB + FM (Issue #2): barra de link + selector de formato ──
+.mockupDownloadBar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem 0.5rem;
+}
+
+.mockupUrlInput {
+  flex: 1;
+  min-width: 0;
+  padding: 0.45rem 0.75rem;
   font-size: 0.72rem;
   color: $fg-dim;
-  flex: 1;
-  text-align: center;
-  letter-spacing: 0.02em;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid $border-bright;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.mockupDownloadBtn {
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: white;
+  background: $gradient-violet;
+  border-radius: $radius-sm;
+}
+
+.mockupFormatBar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1.25rem 0.75rem;
+  border-bottom: 1px solid $border;
+}
+
+.mockupFormatLabel {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $fg-dim;
+  margin-right: 0.35rem;
+}
+
+.mockupFormatBtn {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.55rem;
+  color: $fg-dim;
+  border: 1px solid $border-bright;
+  border-radius: $radius-pill;
+}
+
+.mockupFormatActive {
+  color: $violet-2;
+  border-color: $violet-line;
+  background: $violet-soft;
 }
 
 .mockupStatus {
@@ -109,6 +167,8 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   gap: 0;
   min-height: 2.2rem;
+
+  @include mobile { flex-wrap: wrap; }
 }
 
 .mockupTrackIdx {
@@ -133,7 +193,6 @@
   text-align: left;
   padding: 0 0.75rem;
   border-left: 1px solid rgba(255, 255, 255, 0.07);
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .mockupTrackFmt {
@@ -142,9 +201,47 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.25);
   letter-spacing: 0.1em;
-  min-width: 2.8rem;
-  text-align: right;
+  padding: 0 0.75rem;
   flex-shrink: 0;
+}
+
+// Chips BPM / KEY / DUR (Issue #2): igual que en la app, etiqueta chica arriba y valor abajo
+.mockupMetaGroup {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+
+  @include mobile {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+.mockupMetaChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.6rem;
+  padding: 0.2rem 0.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border;
+  border-radius: 6px;
+
+  @include mobile { flex: 1; }
+}
+
+.mockupMetaLabel {
+  font-family: $font-mono;
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: $fg-dim;
+}
+
+.mockupMetaValue {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: $fg;
 }
 
 // ── PLAYER BAR ──
@@ -189,7 +286,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 0%;
+  width: 29%;
   background: $gradient-violet;
   border-radius: 2px;
 }
@@ -205,7 +302,7 @@
 // ── DOS COLUMNAS ──
 .mockupColumns {
   display: flex;
-  height: 340px;
+  height: 230px;
   overflow: hidden;
 
   @include mobile {
@@ -213,7 +310,7 @@
     flex-direction: column;
   }
 
-  @include tablet { height: 300px; }
+  @include tablet { height: 220px; }
 }
 
 .mockupColTracks {
@@ -228,7 +325,7 @@
     width: 100%;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    height: 180px;
+    height: 150px;
   }
 }
 
@@ -238,7 +335,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  @include mobile { height: 180px; }
+  @include mobile { height: 150px; }
 }
 
 .mockupColHeader {
@@ -347,4 +444,33 @@
   &::before {
     background: $violet;
   }
+}
+
+// ── BTNS (Issue #2): Cancelar / Confirmar, como al pie de la ventana real ──
+.mockupActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid $border;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mockupBtnCancel,
+.mockupBtnConfirm {
+  padding: 0.4rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: $radius-sm;
+}
+
+.mockupBtnCancel {
+  color: $fg-soft;
+  border: 1px solid $border-bright;
+}
+
+.mockupBtnConfirm {
+  color: white;
+  background: $gradient-violet;
+  box-shadow: 0 0 12px rgba(139, 83, 255, 0.35);
 }

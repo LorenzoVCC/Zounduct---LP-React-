@@ -39,7 +39,8 @@ function CTA() {
         <EmailForm showToast={showToast} ctaLabel={PRE_LAUNCH ? 'Sumate a la beta' : 'Descargar gratis'} />
 
         <div className={styles.ctaMeta}>
-          No requiere tarjeta · Cancelás cuando quieras · Hecho para DJs
+          {/* Issue #2: se suma "Para Windows" — es el único sistema que soporta la app hoy */}
+          Para Windows · No requiere tarjeta · Hecho para DJs
         </div>
       </div>
 

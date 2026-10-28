@@ -1,5 +1,13 @@
 import styles from './ProductMockup.module.scss'
 
+/**
+ * Issue #2: el mockup estaba en inglés y era de una versión vieja de la app.
+ * Ahora replica (sin ser pixel-perfect) la ventana "Carpeta" actual de Zounduct
+ * (ui/popup_principal.html, rama `features` de Sounduct), de arriba hacia abajo:
+ *   Head → SB + FM (link + formato) → TData (con chips BPM/KEY/DUR) → PL →
+ *   PList ("Cola") + Dirs (carpetas) → Btns (Cancelar / Confirmar).
+ */
+
 const queue = [
   { activo: true, nombre: 'Viken Arman - Ritual.mp3' },
   { activo: false, nombre: 'Alignment - Shift.wav' },
@@ -9,41 +17,74 @@ const queue = [
 ]
 
 const folders = [
-  { nombre: '/ Root', selected: true },
-  { nombre: 'Techno', selected: false },
+  { nombre: '/ Raíz', selected: false },
+  { nombre: 'Techno', selected: true },
   { nombre: 'Deep House', selected: false },
   { nombre: 'Minimal', selected: false },
-  { nombre: 'Percussion', selected: false },
   { nombre: 'Acid', selected: false },
   { nombre: 'Ambient', selected: false },
-  { nombre: 'Classics', selected: false },
+]
+
+const formats = ['MP3', 'WAV', 'AIFF']
+
+// Metadata leída de los tags del archivo (en la app: chips BPM / KEY / DUR)
+const trackMeta = [
+  { label: 'BPM', value: '124' },
+  { label: 'KEY', value: '8A' },
+  { label: 'DUR', value: '6:42' },
 ]
 
 function ProductMockup() {
   return (
-    <div className={styles.heroMockup}>
+    <div className={styles.heroMockup} aria-hidden="true">
       <div className={styles.mockupWindow}>
-        {/* HEADER */}
+        {/* HEAD */}
         <div className={styles.mockupHeader}>
           <div className={styles.mockupBrand}>
             <span className={styles.mockupLogoMark} />
             <span className={styles.mockupBrandName}>Zounduct</span>
           </div>
-          <div className={styles.mockupTitle}>Categorize track</div>
           <div className={styles.mockupStatus}>
             <span className={styles.mockupStatusDot} />
-            USB connected
+            PD conectado
           </div>
         </div>
 
-        {/* TRACK INFO BAR */}
+        {/* SB + FM: descarga por link y formato */}
+        <div className={styles.mockupDownloadBar}>
+          <div className={styles.mockupUrlInput}>
+            Pegá un link de YouTube, SoundCloud, Bandcamp…
+          </div>
+          <div className={styles.mockupDownloadBtn}>Descargar</div>
+        </div>
+        <div className={styles.mockupFormatBar}>
+          <span className={styles.mockupFormatLabel}>Formato</span>
+          {formats.map((format) => (
+            <span
+              key={format}
+              className={`${styles.mockupFormatBtn} ${format === 'MP3' ? styles.mockupFormatActive : ''}`}
+            >
+              {format}
+            </span>
+          ))}
+        </div>
+
+        {/* TDATA */}
         <div className={styles.mockupTrackBar}>
           <span className={styles.mockupTrackIdx}>1/5</span>
           <span className={styles.mockupTrackTitle}>Viken Arman - Ritual.mp3</span>
           <span className={styles.mockupTrackFmt}>MP3</span>
+          <div className={styles.mockupMetaGroup}>
+            {trackMeta.map((meta) => (
+              <div key={meta.label} className={styles.mockupMetaChip}>
+                <span className={styles.mockupMetaLabel}>{meta.label}</span>
+                <span className={styles.mockupMetaValue}>{meta.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* PLAYER */}
+        {/* PL */}
         <div className={styles.mockupPlayerBar}>
           <div className={styles.mockupPlayBtn}>
             <svg viewBox="0 0 24 24" width="10" height="10" fill="#0f0f0f">
@@ -55,19 +96,18 @@ function ProductMockup() {
               <div className={styles.mockupProgressFill} />
             </div>
             <div className={styles.mockupProgressTimes}>
-              <span>0:00</span>
+              <span>1:58</span>
               <span>6:42</span>
             </div>
           </div>
         </div>
 
-        {/* BODY: DOS COLUMNAS */}
+        {/* PLIST + DIRS */}
         <div className={styles.mockupColumns}>
-          {/* COLUMNA IZQUIERDA: QUEUE */}
           <div className={styles.mockupColTracks}>
             <div className={styles.mockupColHeader}>
-              <span className={styles.mockupColLabel}>QUEUE</span>
-              <span className={styles.mockupColCount}>{queue.length - 1}</span>
+              <span className={styles.mockupColLabel}>COLA</span>
+              <span className={styles.mockupColCount}>{queue.length}</span>
             </div>
             <div className={styles.mockupBandeja}>
               {queue.map((track) => (
@@ -84,10 +124,9 @@ function ProductMockup() {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA: DESTINATION */}
           <div className={styles.mockupColCarpetas}>
             <div className={styles.mockupColHeader}>
-              <span className={styles.mockupColLabel}>DESTINATION</span>
+              <span className={styles.mockupColLabel}>DESTINO</span>
             </div>
             <ul className={styles.mockupFolderList}>
               {folders.map((folder) => (
@@ -102,6 +141,12 @@ function ProductMockup() {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* BTNS */}
+        <div className={styles.mockupActions}>
+          <span className={styles.mockupBtnCancel}>Cancelar</span>
+          <span className={styles.mockupBtnConfirm}>Confirmar</span>
         </div>
       </div>
       <div className={styles.mockupGlow} />

@@ -12,7 +12,10 @@ function CTAGroup() {
         className="btn btn-lg"
         onClick={() => trackEvent('DescargarGratis', { modo: PRE_LAUNCH ? 'pre_launch' : 'launch' })}
       >
-        Descargar gratis
+        {/* Issue #2: en pre-lanzamiento no hay nada para descargar — el botón lleva a la
+            lista de espera (#cta), así que dice lo mismo que el CTA final. "Descargar gratis"
+            queda solo para cuando PRE_LAUNCH = false y el link apunta al instalador real. */}
+        {PRE_LAUNCH ? 'Sumate a la beta' : 'Descargar gratis'}
         <svg
           width="14"
           height="14"

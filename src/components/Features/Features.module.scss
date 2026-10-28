@@ -3,18 +3,20 @@
 
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  // Issue #2: 8 tarjetas (antes 3) → 4 columnas en desktop (2 filas parejas),
+  // 2 en pantallas medianas y 1 en celular.
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 
+  @media (max-width: 1200px) { grid-template-columns: repeat(2, 1fr); }
   @include mobile { grid-template-columns: 1fr; }
-  @include tablet { grid-template-columns: 1fr 1fr; }
 }
 
 .featureCard {
   background: linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(15, 15, 20, 0.7) 100%);
   border: 1px solid $border-bright;
   border-radius: $radius-lg;
-  padding: 2.5rem;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
   transition: all 0.4s $ease-out;
@@ -49,16 +51,8 @@
     .featureNumber { color: $violet-2; }
   }
 
-  &:last-child {
-    @include tablet {
-      grid-column: 1 / -1;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-  }
-
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.85rem;
     letter-spacing: -0.02em;
