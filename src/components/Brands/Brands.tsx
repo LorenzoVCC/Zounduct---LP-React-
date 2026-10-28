@@ -1,7 +1,10 @@
 import useScrollReveal from '../../hooks/useScrollReveal'
 import styles from './Brands.module.scss'
 
-const platforms = ['Audio', 'Streaming', 'Video', 'Podcast', '+ más']
+// Issue #2: antes eran categorías genéricas ("Audio / Streaming / Video / Podcast"), que
+// prometían "cualquier plataforma". Mostramos las plataformas reales que la app sugiere
+// en su barra de descarga, en texto y sin logos (no usamos marcas registradas como imagen).
+const platforms = ['YouTube', 'SoundCloud', 'Bandcamp']
 const formats = ['MP3', 'WAV', 'AIFF']
 
 function Brands() {
@@ -10,7 +13,7 @@ function Brands() {
   return (
     <section className={styles.brands}>
       <div className={styles.brandsLabel}>
-        Cualquier plataforma. Cualquier formato. Directo a tu biblioteca.
+        YouTube, SoundCloud, Bandcamp y más. Directo a tu biblioteca.
       </div>
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''} ${styles.brandsList}`}>
         {platforms.map((platform) => (

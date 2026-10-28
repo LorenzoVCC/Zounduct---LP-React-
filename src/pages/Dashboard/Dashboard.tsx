@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type JSX } from 'react'
 
 const BACKEND_URL = 'https://zounduct-backend.onrender.com'
 const PASSWORD = import.meta.env.VITE_DASHBOARD_PASSWORD as string
@@ -315,7 +315,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!authed) return
-    setLoading(true)
+    // El "cargando" se prende en onLogin (abajo), no acá: un setState sincrónico dentro
+    // del effect rompe la regla react-hooks/set-state-in-effect y hacía fallar el lint.
     Promise.all([
       fetch(`${BACKEND_URL}/api/events/summary`).then((r) => r.json()),
       fetch(`${BACKEND_URL}/api/events/recent?limit=50`).then((r) => r.json()),
@@ -329,7 +330,12 @@ export default function Dashboard() {
       .finally(() => setLoading(false))
   }, [authed])
 
-  if (!authed) return <Login onLogin={() => setAuthed(true)} />
+  if (!authed) return <Login
+        onLogin={() => {
+          setLoading(true)
+          setAuthed(true)
+        }}
+      />
 
   const days = lastNDays(rangeDays)
   const porDiaFiltrado = summary ? porDiaInRange(summary.porTipoPorDia, days) : {}

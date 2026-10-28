@@ -13,6 +13,14 @@
  */
 export const PRE_LAUNCH = import.meta.env.VITE_PRE_LAUNCH !== 'false'
 
-/** URL real del instalador. Bloqueado hasta que S26/S27 (PyInstaller) estén listas. */
+/**
+ * URL real del instalador. Bloqueado hasta que S26/S27 (PyInstaller) estén listas.
+ *
+ * TODO (S26): esta URL no existe. El repo de la app se llama `Sounduct` (no `Zounduct`)
+ * y es privado, así que sus releases no se pueden descargar públicamente. Hay que definir
+ * dónde se publica el instalador (repo público de releases, Netlify, etc.) y actualizarla
+ * antes de pasar PRE_LAUNCH a false. Mientras tanto no se usa: en pre-lanzamiento todos
+ * los CTAs van a la lista de espera (#cta).
+ */
 export const DOWNLOAD_URL =
   'https://github.com/LorenzoVCC/Zounduct/releases/latest/download/Zounduct-Setup.exe'

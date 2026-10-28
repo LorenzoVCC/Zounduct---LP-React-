@@ -21,6 +21,9 @@ export function HistoriaPanelProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// El provider y su hook viven juntos a propósito (mismo contexto). La regla de Fast
+// Refresh pide un componente por archivo; acá solo afecta al hot reload en dev.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useHistoriaPanel() {
   const ctx = useContext(HistoriaPanelContext)
   if (!ctx) {
